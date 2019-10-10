@@ -47,9 +47,9 @@ export default class App extends Component {
           sols: solArray,
           lastSol: maxDay,
           season: responseJson[maxDay].Season,
-          maxT: responseJson[maxDay].AT.mx,
-          minT: responseJson[maxDay].AT.mn,
-          windS: responseJson[maxDay].HWS.av,
+          maxT: Number(responseJson[maxDay].AT.mx.toFixed(0)),
+          minT: Number(responseJson[maxDay].AT.mn.toFixed(0)),
+          windS: Number(responseJson[maxDay].HWS.av.toFixed(1)),
           windD: responseJson[maxDay].WD.most_common.compass_point
         });
       })
@@ -71,9 +71,9 @@ export default class App extends Component {
           sols: solArray,
           lastSol: maxDay,
           season: responseJson[maxDay].Season,
-          maxT: responseJson[maxDay].AT.mx,
-          minT: responseJson[maxDay].AT.mn,
-          windS: responseJson[maxDay].HWS.av,
+          maxT: Number(responseJson[maxDay].AT.mx.toFixed(0)),
+          minT: Number(responseJson[maxDay].AT.mn.toFixed(0)),
+          windS: Number(responseJson[maxDay].HWS.av.toFixed(1)),
           windD: responseJson[maxDay].WD.most_common.compass_point
         });
       })
