@@ -9,6 +9,7 @@ import {
   Image,
   Dimensions
 } from "react-native";
+import keyData from "./key.json"; // Create your own key.json file
 
 let deviceHeight = Dimensions.get("window").height;
 let deviceWidth = Dimensions.get("window").width;
@@ -28,13 +29,15 @@ export default class App extends Component {
       season: "Fall",
       marsData: {},
       sol_selected: 0,
-      key: "TFesgKlVUqu2eKmbUpgoH87XHxWJVgzKM110ryQQ"
+      key: keyData.key
     };
   }
 
   componentDidMount() {
     fetch(
-      "https://api.nasa.gov/insight_weather/?api_key=TFesgKlVUqu2eKmbUpgoH87XHxWJVgzKM110ryQQ&feedtype=json&ver=1.0"
+      "https://api.nasa.gov/insight_weather/?api_key=" +
+        this.state.key +
+        "&feedtype=json&ver=1.0"
     )
       .then(response => response.json())
       .then(responseJson => {
@@ -58,7 +61,9 @@ export default class App extends Component {
 
   getData(sol) {
     fetch(
-      "https://api.nasa.gov/insight_weather/?api_key=TFesgKlVUqu2eKmbUpgoH87XHxWJVgzKM110ryQQ&feedtype=json&ver=1.0"
+      "https://api.nasa.gov/insight_weather/?api_key=" +
+        this.state.key +
+        "&feedtype=json&ver=1.0"
     )
       .then(response => response.json())
       .then(responseJson => {
